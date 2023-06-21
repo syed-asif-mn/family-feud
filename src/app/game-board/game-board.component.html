@@ -1,0 +1,26 @@
+<div class="game-board">
+
+  <div class="team-scores">
+    <div class="team-score">
+      <h3>Team A Score:</h3>
+      <span>{{ teamAScore }}</span>
+      <button (click)="activateTeam('A')">Activate Team A</button>
+    </div>
+    <div class="team-score">
+      <h3>Team B Score:</h3>
+      <span>{{ teamBScore }}</span>
+      <button (click)="activateTeam('B')">Activate Team B</button>
+    </div>
+  </div>
+
+
+  <div class="question">
+    <h2>{{ currentQuestion }}</h2>
+  </div>
+  <div class="answers">
+    <div *ngFor="let answer of currentAnswers" class="answer" (click)="flipCard(answer)" [ngClass]="{ 'flipped': answer.flipped }">
+        <div class="front">{{ answer.value }}</div>
+        <div class="back">{{ answer.content }}</div>
+    </div>
+  </div>  
+</div>

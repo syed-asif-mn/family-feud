@@ -1,0 +1,10 @@
+[
+  {
+    "question": "Name a fruit that is red.",
+    "answers": ["Apple", "Strawberry", "Cherry", "Watermelon", "Raspberry"]
+  },
+  {
+    "question": "Name a capital city in Europe.",
+    "answers": ["Paris", "London", "Rome", "Berlin", "Madrid"]
+  }
+]
