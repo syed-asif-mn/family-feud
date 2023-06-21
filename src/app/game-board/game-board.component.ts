@@ -25,7 +25,7 @@ export class GameBoardComponent implements OnInit {
     this.teamAScore = 0;
     this.teamBScore = 0;
     this.currentTeam = 'A'; // Start with Team A as active team
-    this.pingAudio = new Audio('assets/ping.mp3');
+    this.pingAudio = new Audio('assets/yes.mp3');
   }
 
   ngOnInit() {
@@ -69,6 +69,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   playPingSound() {
+    console.log("playing")
     this.pingAudio.play();
   }
 }
