@@ -118,3 +118,21 @@
 .team-score button:hover {
   background-color: #0056b3;
 }
+
+.wrong-answer-button {
+  width: 80px;
+  height: 80px;
+  background-color: red;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.wrong-answer-button i {
+  color: white;
+  font-size: 40px;
+}

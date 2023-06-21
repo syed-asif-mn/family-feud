@@ -18,6 +18,7 @@ export class GameBoardComponent implements OnInit {
   teamBScore: number;
   currentTeam: string; // Current active team ('A' or 'B')
   private pingAudio: HTMLAudioElement;
+  private wrongAnsAudio: HTMLAudioElement;
   
   constructor(private http: HttpClient){
     this.currentQuestion = '';
@@ -25,7 +26,8 @@ export class GameBoardComponent implements OnInit {
     this.teamAScore = 0;
     this.teamBScore = 0;
     this.currentTeam = 'A'; // Start with Team A as active team
-    this.pingAudio = new Audio('assets/yes.mp3');
+    this.pingAudio = new Audio('https://www.myinstants.com/media/sounds/family-feud-good-answer.mp3');
+    this.wrongAnsAudio = new Audio('https://www.myinstants.com/media/sounds/neg-portal2buzzer_2DIuFda.mp3')
   }
 
   ngOnInit() {
@@ -69,8 +71,13 @@ export class GameBoardComponent implements OnInit {
   }
 
   playPingSound() {
-    console.log("playing")
+    this.pingAudio.load();
     this.pingAudio.play();
+  }
+
+  playWrongAnswerSound() {
+    this.wrongAnsAudio.load();
+    this.wrongAnsAudio.play();
   }
 }
 
