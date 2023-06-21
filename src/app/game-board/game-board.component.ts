@@ -17,13 +17,15 @@ export class GameBoardComponent implements OnInit {
   teamAScore: number;
   teamBScore: number;
   currentTeam: string; // Current active team ('A' or 'B')
-
+  private pingAudio: HTMLAudioElement;
+  
   constructor(private http: HttpClient){
     this.currentQuestion = '';
     this.currentAnswers = [];
     this.teamAScore = 0;
     this.teamBScore = 0;
     this.currentTeam = 'A'; // Start with Team A as active team
+    this.pingAudio = new Audio('assets/ping.mp3');
   }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   flipCard(card: Card) {
+    this.playPingSound();
     card.flipped = !card.flipped;
 
     if (card.flipped) {
@@ -63,6 +66,10 @@ export class GameBoardComponent implements OnInit {
   activateTeam(team: string) {
     // Activate the specified team
     this.currentTeam = team;
+  }
+
+  playPingSound() {
+    this.pingAudio.play();
   }
 }
 
