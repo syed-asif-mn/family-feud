@@ -13,10 +13,10 @@ interface Question {
 })
 export class GameBoardComponent implements OnInit {
   currentQuestion: string;
-  currentAnswers: any[]; // Replace with your answer data structure
+  currentAnswers: any[];
   teamAScore: number;
   teamBScore: number;
-  currentTeam: string; // Current active team ('A' or 'B')
+  currentTeam: string;
   private pingAudio: HTMLAudioElement;
   private wrongAnsAudio: HTMLAudioElement;
   
