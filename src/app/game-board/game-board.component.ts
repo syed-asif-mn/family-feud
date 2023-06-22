@@ -14,34 +14,48 @@ interface Question {
 export class GameBoardComponent implements OnInit {
   currentQuestion: string;
   currentAnswers: any[];
+  currentQuestionIndex: number;
   teamAScore: number;
   teamBScore: number;
+  questions: any[];
   currentTeam: string;
+  isQuestionClicked: boolean = false;
   private pingAudio: HTMLAudioElement;
   private wrongAnsAudio: HTMLAudioElement;
-  
-  constructor(private http: HttpClient){
+
+  constructor(private http: HttpClient) {
     this.currentQuestion = '';
+    this.currentQuestionIndex = 0;
     this.currentAnswers = [];
     this.teamAScore = 0;
     this.teamBScore = 0;
+    this.questions = [];
     this.currentTeam = 'A'; // Start with Team A as active team
-    this.pingAudio = new Audio('https://www.myinstants.com/media/sounds/family-feud-good-answer.mp3');
-    this.wrongAnsAudio = new Audio('https://www.myinstants.com/media/sounds/neg-portal2buzzer_2DIuFda.mp3')
+    this.pingAudio = new Audio(
+      'https://www.myinstants.com/media/sounds/family-feud-good-answer.mp3'
+    );
+    this.wrongAnsAudio = new Audio(
+      'https://www.myinstants.com/media/sounds/neg-portal2buzzer_2DIuFda.mp3'
+    );
   }
 
   ngOnInit() {
     this.http.get<Question[]>('assets/questions.json').subscribe((data) => {
-      const randomIndex = Math.floor(Math.random() * data.length);
-      const randomQuestion = data[randomIndex];
+      this.questions = data;
+      this.loadQuestion(this.currentQuestionIndex);
+    });
+  }
 
-      this.currentQuestion = randomQuestion.question;
-      this.currentAnswers = randomQuestion.answers.map((answer, index) => ({
+  loadQuestion(index: number) {
+    this.currentQuestionIndex = index;
+    this.currentQuestion = this.questions[index].question;
+    this.currentAnswers = this.questions[index].answers.map(
+      (answer: any, index: number) => ({
         value: index + 1,
         content: answer,
         flipped: false,
-      }));
-    });
+      })
+    );
   }
 
   flipCard(card: Card) {
@@ -78,6 +92,18 @@ export class GameBoardComponent implements OnInit {
   playWrongAnswerSound() {
     this.wrongAnsAudio.load();
     this.wrongAnsAudio.play();
+  }
+
+  nextQuestion() {
+    this.isQuestionClicked = false;
+    const nextIndex = this.currentQuestionIndex + 1;
+    if (nextIndex < this.questions.length) {
+      this.loadQuestion(nextIndex);
+    }
+  }
+
+  toggleQuestion() {
+    this.isQuestionClicked = !this.isQuestionClicked;
   }
 }
 
