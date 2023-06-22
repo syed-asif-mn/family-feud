@@ -179,7 +179,7 @@
   background-color: transparent;
   outline: none;
   border: none;
-  margin-right: -7rem;
+  margin-right: -5.25rem;
 }
 
 .wrong-answer-button:focus {
@@ -198,5 +198,7 @@
 }
 
 .control-button {
-  margin-bottom:4rem;
+  margin-bottom:9rem;
+  background-color: transparent;
+  border: none;
 }
