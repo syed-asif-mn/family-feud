@@ -7,7 +7,7 @@
       <h2 *ngIf="isQuestionClicked">{{ currentQuestion }}</h2>
     </div>
     <div class="team-score" [class.selected]="currentTeam === 'B'">
-      <button (click)="activateTeam('B')">{{ teamBScore }}</button>
+      <button (click)="activateTeam('B')">{{ teamBScore }} </button>
     </div>
   </div>
   <div class="answers">
@@ -17,8 +17,8 @@
       (click)="flipCard(answer)"
       [ngClass]="{ flipped: answer.flipped }"
     >
-      <div class="front">{{ answer.value }}</div>
-      <div class="back">{{ answer.content }}</div>
+      <div class="front">{{ answer.index }}</div>
+      <div class="back"><div></div><div>{{ answer.content }}</div> <div>{{ answer.value }}</div>
     </div>
   </div>
   

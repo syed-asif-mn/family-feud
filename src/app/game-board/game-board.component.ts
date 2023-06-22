@@ -28,6 +28,7 @@ export class GameBoardComponent implements OnInit {
   teamBScore: number;
   questions: any[];
   currentTeam: string;
+  multiplier: number = 1;
   isQuestionClicked: boolean = false;
   private pingAudio: HTMLAudioElement;
   private wrongAnsAudio: HTMLAudioElement;
@@ -64,9 +65,10 @@ export class GameBoardComponent implements OnInit {
     this.currentQuestion = this.questions[index].question;
     this.currentAnswers = this.questions[index].answers.map(
       (answer: any, index: number) => ({
-        value: index + 1,
-        content: answer,
+        value: answer.value,
+        content: answer.content,
         flipped: false,
+        index: index + 1
       })
     );
   }
@@ -78,16 +80,16 @@ export class GameBoardComponent implements OnInit {
     if (card.flipped) {
       // Add the value of the flipped answer to the current team's score
       if (this.currentTeam === 'A') {
-        this.teamAScore += card.value;
+        this.teamAScore += (card.value * this.multiplier);
       } else if (this.currentTeam === 'B') {
-        this.teamBScore += card.value;
+        this.teamBScore += (card.value * this.multiplier);
       }
     } else {
       // Subtract the value of the unflipped answer from the current team's score
       if (this.currentTeam === 'A') {
-        this.teamAScore -= card.value;
+        this.teamAScore -= (card.value * this.multiplier);
       } else if (this.currentTeam === 'B') {
-        this.teamBScore -= card.value;
+        this.teamBScore -= (card.value * this.multiplier);
       }
     }
   }
@@ -113,6 +115,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   nextQuestion() {
+    this.multiplier += 1;
     this.isQuestionClicked = false;
     const nextIndex = this.currentQuestionIndex + 1;
     if (nextIndex < this.questions.length) {
@@ -129,4 +132,5 @@ interface Card {
   value: number;
   content: string;
   flipped: boolean;
+  index: number;
 }

@@ -71,8 +71,9 @@
 }
 
 .answer .front {
-  background-color: blue;
-  color: gold;
+  background-color: gold;
+  color: blue;
+  border: blue 1px solid ;
 }
 
 .answer-content {
@@ -119,10 +120,16 @@
 }
 
 .answer.flipped .back {
-  background-color: gold;
-  color: blue;
+  background-color: blue;
   transform: rotateY(0deg);
-  border: 10px gold solid;
+  border: 1px gold solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.answer.flipped .back div{
+  color: gold;
+  padding: 0.5rem;
 }
 
 .team-score button {
@@ -145,7 +152,7 @@
   margin-top: -5.5px;
   background-color: blue;
   color: gold;
-  border: gold 2px solid;
+  border: gold 1rem solid;
   cursor: pointer;
   padding: 5rem;
   border-radius: 50%;

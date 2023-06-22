@@ -1,10 +1,22 @@
 [
   {
     "question": "Name a fruit that is red.",
-    "answers": ["Apple", "Strawberry", "Cherry", "Watermelon", "Raspberry"]
+    "answers": [
+      { "content": "Apple", "value": 60 },
+      { "content": "Strawberry", "value": 80 },
+      { "content": "Cherry", "value": 40 },
+      { "content": "Watermelon", "value": 20 },
+      { "content": "Raspberry", "value": 50 }
+    ]
   },
   {
     "question": "Name a capital city in Europe.",
-    "answers": ["Paris", "London", "Rome", "Berlin", "Madrid"]
+    "answers": [
+      { "content": "Paris", "value": 38 },
+      { "content": "London", "value": 18 },
+      { "content": "Rome", "value": 25 },
+      { "content": "Berlin", "value": 12 },
+      { "content": "Madrid", "value": 30 }
+    ]
   }
 ]
