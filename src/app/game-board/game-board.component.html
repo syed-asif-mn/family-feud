@@ -1,4 +1,5 @@
-<div class="game-board">
+<div class=game>
+  <div class="game-board">
   <div class="main-items">
     <div class="team-score" [class.selected]="currentTeam === 'A'">
       <button (click)="activateTeam('A')">{{ teamAScore }}</button>
@@ -21,12 +22,14 @@
       <div class="back"><div></div><div>{{ answer.content }}</div> <div>{{ answer.value }}</div>
     </div>
   </div>
-  
-  <div class="controls">
-    <button (click)="playIntro()">🎶</button>
-    <button class="wrong-answer-button" (click)="playWrongAnswerSound()">❌</button>
-    <button (click)="nextQuestion()">⏭</button>
-    <button (click)="activateTeam('')">🧼</button>
+</div>
+<div class="controls">
+  <div></div>
+  <button class="wrong-answer-button" (click)="playWrongAnswerSound()">❌</button>
+  <div>
+  <button class="control-button" (click)="playIntro()">🎶</button>
+  <button class="control-button"  (click)="nextQuestion()">⏭</button>
+  <button class="control-button" (click)="activateTeam('')">🧼</button>
   </div>
-
+</div>
 </div>

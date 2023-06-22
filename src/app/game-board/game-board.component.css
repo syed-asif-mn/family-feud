@@ -1,3 +1,8 @@
+.game{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
 .game-board::before {
   content: "";
   position: absolute;
@@ -163,9 +168,23 @@
 
 .controls {
   display: flex;
+  margin-bottom: 10rem;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .wrong-answer-button {
+  margin-bottom: 4rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin-right: -7rem;
+}
+
+.wrong-answer-button:focus {
+  margin-bottom: 4rem;
+  margin-right: -7rem;
   width: 30px;
   height: 30px;
   background-color: red;
@@ -175,9 +194,9 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-bottom: 20px;
+  transform: scale(2.5);
 }
 
-.wrong-answer-button:focus {
-  transform: scale(2.5);
+.control-button {
+  margin-bottom:4rem;
 }
