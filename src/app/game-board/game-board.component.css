@@ -23,15 +23,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 10px;
-  background-color: #f8f8f8;
   font-size: 20px;
   font-weight: bold;
-  cursor: pointer;
   position: relative;
   perspective: 1000px;
+  background-color: blue;
+  cursor: pointer;
+}
+
+.answer .front {
+  background-color: rgb(36, 36, 250);
+}
+
+.answer-content {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
 }
 
 .answer .card {
@@ -50,21 +60,15 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
   backface-visibility: hidden;
-}
-
-.answer .front {
-  background-color: #f8f8f8;
+  border-radius: 7px;
 }
 
 .answer .back {
-  background-color: #333;
-  color: #fff;
   transform: rotateY(180deg);
 }
 
@@ -73,14 +77,14 @@
 }
 
 .answer.flipped .front {
-  background-color: #333;
   color: #fff;
 }
 
 .answer.flipped .back {
-  background-color: #f8f8f8;
+  background-color: gold;
   color: #000;
   transform: rotateY(0deg);
+  border: 10px gold solid;
 }
 
 
