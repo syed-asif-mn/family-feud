@@ -21,11 +21,12 @@
       <div class="back">{{ answer.content }}</div>
     </div>
   </div>
+  
   <div class="controls">
-    <button (click)="nextQuestion()">Next Question</button>
+    <button (click)="playIntro()">🎶</button>
+    <button class="wrong-answer-button" (click)="playWrongAnswerSound()">❌</button>
+    <button (click)="nextQuestion()">⏭</button>
+    <button (click)="activateTeam('')">🧼</button>
   </div>
 
-  <button class="wrong-answer-button" (click)="playWrongAnswerSound()">
-    <i class="fas fa-times"></i>
-  </button>
 </div>

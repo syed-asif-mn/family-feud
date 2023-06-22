@@ -154,9 +154,13 @@
   font-size: 2rem;
 }
 
+.controls {
+  display: flex;
+}
+
 .wrong-answer-button {
-  width: 80px;
-  height: 80px;
+  width: 30px;
+  height: 30px;
   background-color: red;
   border: none;
   border-radius: 50%;
@@ -167,7 +171,6 @@
   margin-bottom: 20px;
 }
 
-.wrong-answer-button i {
-  color: white;
-  font-size: 40px;
+.wrong-answer-button:focus {
+  transform: scale(2.5);
 }

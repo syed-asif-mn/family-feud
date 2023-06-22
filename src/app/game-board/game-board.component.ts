@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 interface Question {
   question: string;
@@ -10,6 +11,14 @@ interface Question {
   selector: 'app-game-board',
   templateUrl: './game-board.component.html',
   styleUrls: ['./game-board.component.css'],
+  animations: [
+    trigger('clickAnimation', [
+      state('initial', style({ transform: 'scale(0.5)' })),
+      state('clicked', style({ transform: 'scale(3)' })),
+      transition('initial => clicked', animate('300ms ease-out')),
+      transition('clicked => initial', animate('300ms ease-in'))
+    ])
+  ]
 })
 export class GameBoardComponent implements OnInit {
   currentQuestion: string;
@@ -22,6 +31,7 @@ export class GameBoardComponent implements OnInit {
   isQuestionClicked: boolean = false;
   private pingAudio: HTMLAudioElement;
   private wrongAnsAudio: HTMLAudioElement;
+  private introAudio: HTMLAudioElement;
 
   constructor(private http: HttpClient) {
     this.currentQuestion = '';
@@ -36,6 +46,9 @@ export class GameBoardComponent implements OnInit {
     );
     this.wrongAnsAudio = new Audio(
       'https://www.myinstants.com/media/sounds/neg-portal2buzzer_2DIuFda.mp3'
+    );
+    this.introAudio = new Audio(
+      'https://www.myinstants.com/media/sounds/family-feud-theme-after-1st-fast-money.mp3'
     );
   }
 
@@ -66,14 +79,14 @@ export class GameBoardComponent implements OnInit {
       // Add the value of the flipped answer to the current team's score
       if (this.currentTeam === 'A') {
         this.teamAScore += card.value;
-      } else {
+      } else if (this.currentTeam === 'B') {
         this.teamBScore += card.value;
       }
     } else {
       // Subtract the value of the unflipped answer from the current team's score
       if (this.currentTeam === 'A') {
         this.teamAScore -= card.value;
-      } else {
+      } else if (this.currentTeam === 'B') {
         this.teamBScore -= card.value;
       }
     }
@@ -92,6 +105,11 @@ export class GameBoardComponent implements OnInit {
   playWrongAnswerSound() {
     this.wrongAnsAudio.load();
     this.wrongAnsAudio.play();
+  }
+
+  playIntro() {
+    this.introAudio.load();
+    this.introAudio.play();
   }
 
   nextQuestion() {
