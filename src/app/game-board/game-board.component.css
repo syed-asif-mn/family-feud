@@ -3,16 +3,6 @@
   width: 100vw;
   height: 100vh;
 }
-.game-board::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.1); /* Adjust the alpha value (0.5) for the desired level of opacity */
-  z-index: -1;
-}
 
 .game-board{
   overflow: hidden;
@@ -183,8 +173,8 @@
 }
 
 .wrong-answer-button:focus {
-  margin-bottom: 4rem;
-  margin-right: -7rem;
+  margin-bottom: 4.5rem;
+  margin-right: -6rem;
   width: 30px;
   height: 30px;
   background-color: red;

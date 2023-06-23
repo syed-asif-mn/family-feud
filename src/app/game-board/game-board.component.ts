@@ -106,13 +106,13 @@ export class GameBoardComponent implements OnInit {
   }
 
   playPingSound() {
-    this.pingAudio.volume = 0.5; 
+    this.pingAudio.volume = 0.4; 
     this.pingAudio.load();
     this.pingAudio.play();
   }
 
   playWrongAnswerSound() {
-    this.wrongAnsAudio.volume = 0.5; 
+    this.wrongAnsAudio.volume = 0.4; 
     this.wrongAnsAudio.load();
     this.wrongAnsAudio.play();
   }
