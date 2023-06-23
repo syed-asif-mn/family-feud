@@ -43,13 +43,13 @@ export class GameBoardComponent implements OnInit {
     this.questions = [];
     this.currentTeam = 'A'; // Start with Team A as active team
     this.pingAudio = new Audio(
-      'https://www.myinstants.com/media/sounds/family-feud-good-answer.mp3'
+      'https://archive.org/download/famfeud2023/Family%20Feud%20Music%20Cues%20%26%20Sound%20Effects%20Collection%20%282023%29.rar/Sound%20Effects%2FFamily%20Feud%20Sound%20Effects%20-%202.%20Fast%20Money%20-%203.%20Ding.wav'
     );
     this.wrongAnsAudio = new Audio(
-      'https://www.myinstants.com/media/sounds/neg-portal2buzzer_2DIuFda.mp3'
+      'https://archive.org/download/famfeud2023/Family%20Feud%20Music%20Cues%20%26%20Sound%20Effects%20Collection%20%282023%29.rar/Sound%20Effects%2FFamily%20Feud%20Sound%20Effects%20-%201.%20Main%20Game%20-%203.%20Strike.wav'
     );
     this.introAudio = new Audio(
-      'https://www.myinstants.com/media/sounds/family-feud-theme-after-1st-fast-money.mp3'
+      'https://archive.org/download/famfeud2023/Family%20Feud%20Music%20Cues%20%26%20Sound%20Effects%20Collection%20%282023%29.rar/Music%20Cues%2FFamily%20Feud%20Music%20Cues%20-%201.%20Opening%20Theme.wav'
     );
   }
 
