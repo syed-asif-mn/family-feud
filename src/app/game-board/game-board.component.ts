@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 interface Question {
   question: string;
@@ -16,9 +22,9 @@ interface Question {
       state('initial', style({ transform: 'scale(0.5)' })),
       state('clicked', style({ transform: 'scale(3)' })),
       transition('initial => clicked', animate('300ms ease-out')),
-      transition('clicked => initial', animate('300ms ease-in'))
-    ])
-  ]
+      transition('clicked => initial', animate('300ms ease-in')),
+    ]),
+  ],
 })
 export class GameBoardComponent implements OnInit {
   currentQuestion: string;
@@ -49,7 +55,7 @@ export class GameBoardComponent implements OnInit {
       'https://archive.org/download/famfeud2023/Family%20Feud%20Music%20Cues%20%26%20Sound%20Effects%20Collection%20%282023%29.rar/Sound%20Effects%2FFamily%20Feud%20Sound%20Effects%20-%201.%20Main%20Game%20-%203.%20Strike.wav'
     );
     this.introAudio = new Audio(
-      'https://archive.org/download/famfeud2023/Family%20Feud%20Music%20Cues%20%26%20Sound%20Effects%20Collection%20%282023%29.rar/Music%20Cues%2FFamily%20Feud%20Music%20Cues%20-%201.%20Opening%20Theme.wav'
+      'https://archive.org/download/tvtunes_29930/Family%20Feud%20-%201994.mp3'
     );
   }
 
@@ -68,7 +74,7 @@ export class GameBoardComponent implements OnInit {
         value: answer.value,
         content: answer.content,
         flipped: false,
-        index: index + 1
+        index: index + 1,
       })
     );
   }
@@ -80,16 +86,16 @@ export class GameBoardComponent implements OnInit {
     if (card.flipped) {
       // Add the value of the flipped answer to the current team's score
       if (this.currentTeam === 'A') {
-        this.teamAScore += (card.value * this.multiplier);
+        this.teamAScore += card.value * this.multiplier;
       } else if (this.currentTeam === 'B') {
-        this.teamBScore += (card.value * this.multiplier);
+        this.teamBScore += card.value * this.multiplier;
       }
     } else {
       // Subtract the value of the unflipped answer from the current team's score
       if (this.currentTeam === 'A') {
-        this.teamAScore -= (card.value * this.multiplier);
+        this.teamAScore -= card.value * this.multiplier;
       } else if (this.currentTeam === 'B') {
-        this.teamBScore -= (card.value * this.multiplier);
+        this.teamBScore -= card.value * this.multiplier;
       }
     }
   }
@@ -100,18 +106,26 @@ export class GameBoardComponent implements OnInit {
   }
 
   playPingSound() {
+    this.pingAudio.volume = 0.5; 
     this.pingAudio.load();
     this.pingAudio.play();
   }
 
   playWrongAnswerSound() {
+    this.wrongAnsAudio.volume = 0.5; 
     this.wrongAnsAudio.load();
     this.wrongAnsAudio.play();
   }
 
   playIntro() {
-    this.introAudio.load();
-    this.introAudio.play();
+    this.introAudio.volume = 0.5; 
+      this.introAudio.load();
+      this.introAudio.play();
+    
+      setTimeout(() =>{
+        this.introAudio.pause();
+        this.introAudio.currentTime = 0;
+     }, 19 * 1000);
   }
 
   nextQuestion() {
