@@ -68,8 +68,8 @@
   color: gold;
   min-width: 25vw;
   max-width: 50vw;
-  min-height: 7vh;
-  max-height: 10vh;
+  min-height: 9vh;
+  max-height: 9vh;
   padding: 0 1rem;
   overflow-wrap: break-word; 
   cursor: pointer;
