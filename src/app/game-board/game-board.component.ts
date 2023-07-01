@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
 
 interface Question {
   question: string;
@@ -16,16 +9,9 @@ interface Question {
 @Component({
   selector: 'app-game-board',
   templateUrl: './game-board.component.html',
-  styleUrls: ['./game-board.component.css'],
-  animations: [
-    trigger('clickAnimation', [
-      state('initial', style({ transform: 'scale(0.5)' })),
-      state('clicked', style({ transform: 'scale(3)' })),
-      transition('initial => clicked', animate('300ms ease-out')),
-      transition('clicked => initial', animate('300ms ease-in')),
-    ]),
-  ],
+  styleUrls: ['./game-board.component.css']
 })
+
 export class GameBoardComponent implements OnInit {
   currentQuestion: string;
   currentAnswers: any[];
@@ -64,6 +50,8 @@ export class GameBoardComponent implements OnInit {
       this.questions = data;
       this.loadQuestion(this.currentQuestionIndex);
     });
+    this.introAudio.load();
+    this.wrongAnsAudio.load();
   }
 
   loadQuestion(index: number) {
@@ -113,13 +101,11 @@ export class GameBoardComponent implements OnInit {
 
   playWrongAnswerSound() {
     this.wrongAnsAudio.volume = 0.4; 
-    this.wrongAnsAudio.load();
     this.wrongAnsAudio.play();
   }
 
   playIntro() {
     this.introAudio.volume = 0.5; 
-      this.introAudio.load();
       this.introAudio.play();
     
       setTimeout(() =>{

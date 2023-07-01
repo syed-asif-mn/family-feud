@@ -1,22 +1,25 @@
 [
   {
-    "question": "Name a fruit that is red.",
+    "question": "We asked a 100 women to name a word that their dog understands.",
     "answers": [
-      { "content": "Apple", "value": 60 },
-      { "content": "Strawberry", "value": 80 },
-      { "content": "Cherry", "value": 40 },
-      { "content": "Watermelon", "value": 20 },
-      { "content": "Raspberry", "value": 50 }
+      { "content": "Walk/Leash", "value": 22 },
+      { "content": "Sit", "value": 19 },
+      { "content": "Play", "value": 16 },
+      { "content": "Eat", "value": 13 },
+      { "content": "Bone", "value": 11 },
+      { "content": "Ball", "value": 9 },
+      { "content": "Paw", "value": 6 },
+      { "content": "Vet", "value": 4 }
     ]
   },
   {
-    "question": "Name a capital city in Europe.",
+    "question": "We asked a 100 women to name a fruit that is red.",
     "answers": [
-      { "content": "Paris", "value": 38 },
-      { "content": "London", "value": 18 },
-      { "content": "Rome", "value": 25 },
-      { "content": "Berlin", "value": 12 },
-      { "content": "Madrid", "value": 30 }
+      { "content": "Apple", "value": 32 },
+      { "content": "Cherry", "value": 23 },
+      { "content": "Watermelon", "value": 18 },
+      { "content": "Strawberry", "value": 17 },
+      { "content": "Raspberry", "value": 10 }
     ]
   }
 ]

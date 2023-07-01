@@ -1,15 +1,17 @@
-<div class=game>
-  <div class="game-board">
-  <div class="main-items">
+<input class="team-A-name"/>
+<input class="team-B-name"/>
+<div class="game-board">
+  <button class="wrong-answer-button" (click)="playWrongAnswerSound()">❌</button>
+  <div class="team-score-items">
     <div class="team-score" [class.selected]="currentTeam === 'A'">
       <button (click)="activateTeam('A')">{{ teamAScore }}</button>
-    </div>
-    <div class="question" (click)="toggleQuestion()">
-      <h2 *ngIf="isQuestionClicked">{{ currentQuestion }}</h2>
     </div>
     <div class="team-score" [class.selected]="currentTeam === 'B'">
       <button (click)="activateTeam('B')">{{ teamBScore }} </button>
     </div>
+  </div>
+  <div class="question" (click)="toggleQuestion()">
+    <h2 *ngIf="isQuestionClicked">{{ currentQuestion }}</h2>
   </div>
   <div class="answers">
     <div
@@ -19,17 +21,13 @@
       [ngClass]="{ flipped: answer.flipped }"
     >
       <div class="front">{{ answer.index }}</div>
-      <div class="back"><div></div><div>{{ answer.content }}</div> <div>{{ answer.value }}</div>
+      <div class="back"><div></div><div>{{ answer.content }}</div> <div class="answer-points">{{ answer.value }}</div>
     </div>
   </div>
 </div>
 <div class="controls">
-  <div></div>
-  <button class="wrong-answer-button" (click)="playWrongAnswerSound()">❌</button>
-  <div>
   <button class="control-button" (click)="playIntro()">🎶</button>
   <button class="control-button"  (click)="nextQuestion()">⏭</button>
   <button class="control-button" (click)="activateTeam('')">🧼</button>
-  </div>
 </div>
 </div>
